@@ -171,11 +171,11 @@ async function setLightState(state, lightId) {
 
 async function getLight(lightId) {
     let result = await bridgeGet(`lights/${lightId}`);
-    console.log(result);
+    return result;
 }
 
 async function start() { 
-    console.log(process.argv); // args start at 1    
+    // console.log(process.argv); // args start at 1    
     getLight(9);
 }
 
