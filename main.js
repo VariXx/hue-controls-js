@@ -1,12 +1,5 @@
-const fetch = require('node-fetch');
 const hueSettings = require('./hueSettings');
-
-async function start() { 
-    // console.log(process.argv); // args start at 1    
-    getLight(9);
-}
-
-// start();
+const { colorLoop } = require('./utils/colorLoop');
 
 /* create bridge user example
 
@@ -32,3 +25,7 @@ async function start() {
     }
 })();
 */
+
+(async () => {
+    colorLoop(hueSettings.bridgeIP, hueSettings.username, 9, true);
+})();
