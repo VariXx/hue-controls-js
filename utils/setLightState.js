@@ -1,10 +1,10 @@
 const { bridgePut } = require('./bridgePut');
 
-async function setLightState(state, lightId) {
+async function setLightState(bridgeIP, username, state, lightId) {
     let payload = {
         on: state
     };
-    await bridgePut(`lights/${lightId}/state`, payload);
+    await bridgePut(bridgeIP, username, `lights/${lightId}/state`, payload);
 }
 
 module.exports.setLightState = setLightState;

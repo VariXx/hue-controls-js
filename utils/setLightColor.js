@@ -1,6 +1,6 @@
 const { bridgePut } = require('./bridgePut');
 
-async function setLightColor(color, lightId) {
+async function setLightColor(bridgeIP, username, color, lightId) {
     let newColor = errorColor;
     for(let key in colors) { 
         if(key.toLowerCase() == color) {
@@ -11,7 +11,7 @@ async function setLightColor(color, lightId) {
     let payload = {
         xy: newColor
     };
-    await bridgePut(`lights/${lightId}/state`, payload);
+    await bridgePut(bridgeIP, username, `lights/${lightId}/state`, payload);
 }
 
 module.exports.setLightColor = setLightColor;
