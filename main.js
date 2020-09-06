@@ -1,5 +1,6 @@
 const hueSettings = require('./hueSettings');
 const { colorLoop } = require('./utils/colorLoop');
+const { getAllLights } = require('./utils/getAllLights');
 
 /* create bridge user example
 
@@ -27,5 +28,10 @@ const { colorLoop } = require('./utils/colorLoop');
 */
 
 (async () => {
-    colorLoop(hueSettings.bridgeIP, hueSettings.username, 9, true);
+    // colorLoop(hueSettings.bridgeIP, hueSettings.username, 9, true);
+    const result = await getAllLights(hueSettings.bridgeIP, hueSettings.username);
+    // for(key in result) {
+    //     console.log(key);
+    // }
+    console.log(result);
 })();
